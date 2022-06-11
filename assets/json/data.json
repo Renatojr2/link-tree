@@ -1,0 +1,20 @@
+[
+    {
+        "socialName": "Linkedin",
+        "sociallink": "https://www.linkedin.com/in/renato-junior-385049137/",
+        "socialIcon": "assets/icons/linkedin.svg",
+        "socialColors": "#0a66c2"
+    },
+    {
+        "socialName": "Github",
+        "sociallink": "https://github.com/Renatojr2",
+        "socialIcon": "assets/icons/github.svg",
+        "socialColors": "#0a66c2"
+    },
+    {
+        "socialName": "Youtube",
+        "sociallink": "",
+        "socialIcon": "assets/icons/youtube.svg",
+        "socialColors": "#ff0000"
+    }
+]
