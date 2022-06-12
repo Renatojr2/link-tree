@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LinkBtn extends StatelessWidget {
-  const LinkBtn(
-      {Key? key,
-      required this.title,
-      required this.icon,
-      this.onTap,
-      this.color})
-      : super(key: key);
+  const LinkBtn({
+    Key? key,
+    required this.title,
+    required this.icon,
+    this.onTap,
+    this.color,
+    this.colorIcon,
+  }) : super(key: key);
 
   // final Colors colors;
   final String title;
   final String icon;
   final void Function()? onTap;
   final Color? color;
+  final Color? colorIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class LinkBtn extends StatelessWidget {
               border: Border.all(color: Colors.black, width: 3),
               boxShadow: const [
                 BoxShadow(
-                  color: Colors.black,
+                  color: Colors.black87,
                   spreadRadius: 1,
 
                   offset: Offset(4, 7), // changes position of shadow
@@ -42,7 +44,10 @@ class LinkBtn extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(icon),
+                  SvgPicture.asset(
+                    icon,
+                    color: colorIcon,
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     title,

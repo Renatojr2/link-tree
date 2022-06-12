@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
                             title: e.socialName,
                             icon: e.socialIcon,
                             color: _color(e.socialColors!),
+                            colorIcon: Colors.white,
                             onTap: () async {
                               await _openUrl(e.sociallink);
                             },
