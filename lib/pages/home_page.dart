@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:insta/extetion/color_extetioon.dart';
 import 'package:insta/models/social_model.dart';
@@ -37,18 +38,20 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 40),
-                  const HeaderWidget(),
+                  FadeInDown(child: const HeaderWidget()),
                   const SizedBox(height: 40),
                   Column(
                     children: snapShot.data!
-                        .map((e) => LinkBtn(
-                              title: e.socialName,
-                              icon: e.socialIcon,
-                              color: _color(e.socialColors!),
-                              colorIcon: Colors.white,
-                              onTap: () async {
-                                await _openUrl(e.sociallink);
-                              },
+                        .map((e) => FadeInLeft(
+                              child: LinkBtn(
+                                title: e.socialName,
+                                icon: e.socialIcon,
+                                color: _color(e.socialColors!),
+                                colorIcon: Colors.white,
+                                onTap: () async {
+                                  await _openUrl(e.sociallink);
+                                },
+                              ),
                             ))
                         .toList(),
                   ),
