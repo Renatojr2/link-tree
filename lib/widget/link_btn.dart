@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LinkBtn extends StatelessWidget {
+class LinkBtn extends StatefulWidget {
   const LinkBtn({
     Key? key,
     required this.title,
@@ -19,21 +19,43 @@ class LinkBtn extends StatelessWidget {
   final Color? colorIcon;
 
   @override
+  State<LinkBtn> createState() => _LinkBtnState();
+}
+
+class _LinkBtnState extends State<LinkBtn> {
+  double dx = 4;
+  double dy = 7;
+
+  void _onTap() {
+    setState(() {
+      dx = 0;
+      dy = 0;
+    });
+    Future.delayed(const Duration(milliseconds: 100), (() {
+      setState(() {
+        dx = 4;
+        dy = 7;
+      });
+    }));
+    widget.onTap!();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: _onTap,
       child: Column(
         children: [
           Container(
             decoration: BoxDecoration(
-              color: color ?? Colors.red,
+              color: widget.color ?? Colors.red,
               border: Border.all(color: Colors.black, width: 3),
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
                   color: Colors.black87,
                   spreadRadius: 1,
 
-                  offset: Offset(4, 7), // changes position of shadow
+                  offset: Offset(dx, dy), // changes position of shadow
                 ),
               ],
             ),
@@ -45,12 +67,12 @@ class LinkBtn extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    icon,
-                    color: colorIcon,
+                    widget.icon,
+                    color: widget.colorIcon,
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    title,
+                    widget.title,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
