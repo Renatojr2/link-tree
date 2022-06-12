@@ -30,49 +30,50 @@ class _HomePageState extends State<HomePage> {
       child: FutureBuilder<List<SocialModel>>(
         future: SocialLinkRepository().getJson(),
         builder: (context, snapShot) {
-          if (!snapShot.hasData) {
+          if (snapShot.connectionState == ConnectionState.done) {
+            return Scaffold(
+              backgroundColor: const Color(0xFFffdc26),
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 40),
+                  const HeaderWidget(),
+                  const SizedBox(height: 40),
+                  Column(
+                    children: snapShot.data!
+                        .map((e) => LinkBtn(
+                              title: e.socialName,
+                              icon: e.socialIcon,
+                              color: _color(e.socialColors!),
+                              colorIcon: Colors.white,
+                              onTap: () async {
+                                await _openUrl(e.sociallink);
+                              },
+                            ))
+                        .toList(),
+                  ),
+                  Expanded(child: Container()),
+                  Container(
+                    height: 40,
+                    width: double.maxFinite,
+                    color: Colors.black87,
+                    child: const Center(
+                      child: Text(
+                        'Em construção - 2022',
+                        style: TextStyle(color: Colors.white38),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else {
             return const Center(
               child: CircularProgressIndicator(
                 color: Colors.red,
               ),
             );
           }
-          return Scaffold(
-            backgroundColor: const Color(0xFFffdc26),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 40),
-                const HeaderWidget(),
-                const SizedBox(height: 40),
-                Column(
-                  children: snapShot.data!
-                      .map((e) => LinkBtn(
-                            title: e.socialName,
-                            icon: e.socialIcon,
-                            color: _color(e.socialColors!),
-                            colorIcon: Colors.white,
-                            onTap: () async {
-                              await _openUrl(e.sociallink);
-                            },
-                          ))
-                      .toList(),
-                ),
-                Expanded(child: Container()),
-                Container(
-                  height: 40,
-                  width: double.maxFinite,
-                  color: Colors.black87,
-                  child: const Center(
-                    child: Text(
-                      'Em construção - 2022',
-                      style: TextStyle(color: Colors.white38),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
         },
       ),
     );
