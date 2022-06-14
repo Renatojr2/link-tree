@@ -60,11 +60,23 @@ class _HomePageState extends State<HomePage> {
                     height: 40,
                     width: double.maxFinite,
                     color: Colors.black87,
-                    child: const Center(
-                      child: Text(
-                        'Em construção - 2022',
-                        style: TextStyle(color: Colors.white38),
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Em construção - 2022',
+                          style: TextStyle(color: Colors.white38),
+                        ),
+                        const SizedBox(width: 15),
+                        GestureDetector(
+                          onTap: () => Navigator.pushNamed(context, '/game'),
+                          child: const Text(
+                            'Entediado - clique aqui',
+                            style: TextStyle(color: Colors.white38),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
