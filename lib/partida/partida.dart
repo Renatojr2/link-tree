@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:insta/partida/resultado.dart';
+import 'resultado.dart';
 
 const pedra = 'Pedra';
 const papel = 'Papel';

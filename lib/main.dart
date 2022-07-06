@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:insta/pages/game.dart';
-import 'package:insta/pages/home_page.dart';
-import 'package:insta/partida/configurar_partida.dart';
-import 'package:insta/partida/partida.dart';
+import 'pages/game.dart';
+import 'pages/home_page.dart';
+import 'partida/configurar_partida.dart';
+import 'partida/partida.dart';
 import 'package:provider/provider.dart';
 
 void main() {

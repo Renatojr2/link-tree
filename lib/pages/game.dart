@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:insta/partida/configurar_partida.dart';
-import 'package:insta/partida/partida.dart';
-import 'package:insta/widget/opcoes.dart';
+import '../partida/configurar_partida.dart';
+import '../partida/partida.dart';
+import '../widget/opcoes.dart';
 import 'package:provider/provider.dart';
 
 import '../partida/resultado.dart';
@@ -63,6 +63,7 @@ class _GameState extends State<Game> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
                 'Vamos jogar!',
@@ -79,9 +80,11 @@ class _GameState extends State<Game> {
               ),
               const SizedBox(height: 20),
               Container(
-                height: 100,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
+                width: 350,
+                height: 300,
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  shrinkWrap: true,
                   children: opcoes
                       .map((e) => Opcoes(
                             opcao: e,

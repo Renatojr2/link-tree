@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:insta/extetion/color_extetioon.dart';
-import 'package:insta/models/social_model.dart';
-import 'package:insta/repository/social_link_repository.dart';
-import 'package:insta/widget/header.dart';
+import '../extetion/color_extetioon.dart';
+import '../models/social_model.dart';
+import '../repository/social_link_repository.dart';
+import '../widget/header.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../widget/link_btn.dart';

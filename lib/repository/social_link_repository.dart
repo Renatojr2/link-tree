@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:insta/models/social_model.dart';
+import '../models/social_model.dart';
 
 class SocialLinkRepository {
   Future<List<SocialModel>> getJson() async {

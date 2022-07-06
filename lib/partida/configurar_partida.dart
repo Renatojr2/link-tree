@@ -1,4 +1,4 @@
-import 'package:insta/partida/partida.dart';
+import 'partida.dart';
 
 Partida configutarPartida() {
   return Partida()
